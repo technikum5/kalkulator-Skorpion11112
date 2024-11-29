@@ -1,16 +1,37 @@
 function calculate(operation) {
-//Dpkończ kod - pobierz liczby i sprawdź czy są poprawne
+    var num1 = parseFloat(document.getElementById('number1').value);
+    var num2 = parseFloat(document.getElementById('number2').value);
+    if (isNaN(num1) || isNaN(num2)) {
         alert('Proszę wprowadzić prawidłowe liczby.');
         return;
     }
-
+    var wynik;
     switch (operation) {
-       //Dokończ funkcję działań: dodawania, odejmowania, dzielenia, mnożenia
-       
-             //uzupełnij   alert('Nie można dzielić przez zero.');
+        case 'add':
+            wynik=num1+num2;
+            break;
+                    
+        case 'subtract':
+            wynik=num1-num2;
+            break;
+                    
+        case 'multiply':
+            wynik=num1*num2;
+            break;
+                    
+        case 'divide':
+            if (num2===0) {
+                alert('Nie można dzielić przez zero.');
+                return;
+            }
+                    
+            wynik=num1/num2;
+            break;
+        default:
+
             alert('Nieznana operacja.');
             return;
     }
 
-    document.getElementById('result').textContent = result;
+    document.getElementById('wynik').textContent = wynik;
 }
